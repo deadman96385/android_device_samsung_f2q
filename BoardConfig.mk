@@ -1,10 +1,10 @@
-COMMON_PATH := device/samsung/sm8250-common
+DEVICE_PATH := device/samsung/f2q
 
 # Platform
 BOARD_VENDOR := samsung
 TARGET_BOARD_PLATFORM := kona
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno650
-TARGET_SPECIFIC_HEADER_PATH += $(COMMON_PATH)/include
+TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
 
 # Architecture
 TARGET_ARCH := arm64
@@ -68,7 +68,7 @@ BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := \
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_ODM := odm
 TARGET_COPY_OUT_PRODUCT := system/product
-TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -92,7 +92,7 @@ BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 # Recovery
 BOARD_HAS_DOWNLOAD_MODE := true
 BOARD_INCLUDE_RECOVERY_DTBO := true
-TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 
 # APEX
@@ -105,34 +105,34 @@ USE_XML_AUDIO_POLICY_CONF := 1
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # HIDL
-DEVICE_FRAMEWORK_MANIFEST_FILE += $(COMMON_PATH)/framework_manifest.xml
+DEVICE_FRAMEWORK_MANIFEST_FILE += $(DEVICE_PATH)/framework_manifest.xml
 
 # Properties
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
-TARGET_PRODUCT_PROP += $(COMMON_PATH)/product.prop
+TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
 
 # Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)/releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)/releasetools
 
 # SELinux
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
     device/qcom/sepolicy/generic/public \
     device/qcom/sepolicy/qva/public \
     device/samsung_slsi/sepolicy/common/public \
-    $(COMMON_PATH)/sepolicy/platform/public
+    $(DEVICE_PATH)/sepolicy/platform/public
 
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
     device/qcom/sepolicy/generic/private \
     device/qcom/sepolicy/qva/private \
     device/samsung_slsi/sepolicy/common/private \
-    $(COMMON_PATH)/sepolicy/platform/private
+    $(DEVICE_PATH)/sepolicy/platform/private
 
 PRODUCT_PUBLIC_SEPOLICY_DIRS += \
     device/qcom/sepolicy/product/public \
-    $(COMMON_PATH)/sepolicy/public
+    $(DEVICE_PATH)/sepolicy/public
 
 PRODUCT_PRIVATE_SEPOLICY_DIRS += \
     device/qcom/sepolicy/product/private \
-    $(COMMON_PATH)/sepolicy/private
+    $(DEVICE_PATH)/sepolicy/private
 
-BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
